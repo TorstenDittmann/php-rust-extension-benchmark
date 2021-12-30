@@ -49,12 +49,12 @@ $routes = [
     "/v1/health/queue/certificates"
 ];
 
-\uksort($routes, fn($a, $b) => \strlen($b) - \strlen($a));
+\uksort($routes, fn ($a, $b) => \strlen($b) - \strlen($a));
 
 \uksort($routes, function (string $a, string $b) {
     $result = \count(\explode('/', $b)) - \count(\explode('/', $a));
 
-    if($result === 0) {
+    if ($result === 0) {
         return \substr_count($a, ':') - \substr_count($b, ':');
     }
 

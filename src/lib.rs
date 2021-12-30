@@ -3,19 +3,22 @@ use regex::Regex;
 
 struct Route {
     path: String,
-    expression: Regex
+    expression: Regex,
 }
 
 #[php_class]
 pub struct AppRust {
     routes: Vec<String>,
-    routes_prepared: Vec<Route>
+    routes_prepared: Vec<Route>,
 }
 
 #[php_impl]
 impl AppRust {
     pub fn __construct(routes: Vec<String>) -> Self {
-        Self { routes, routes_prepared: Vec::new() }
+        Self {
+            routes,
+            routes_prepared: Vec::new(),
+        }
     }
 
     pub fn build(&mut self) {
@@ -24,7 +27,7 @@ impl AppRust {
             let pattern = regex.replace_all(&route, "([^/]+)");
             self.routes_prepared.push(Route {
                 path: route.clone(),
-                expression: Regex::new(&pattern).unwrap()
+                expression: Regex::new(&pattern).unwrap(),
             });
         }
     }
@@ -32,7 +35,7 @@ impl AppRust {
     pub fn matches(&self, url: String) -> Option<String> {
         for route in self.routes_prepared.iter() {
             if route.expression.is_match(&url) {
-                return Some(route.path.clone())
+                return Some(route.path.clone());
             }
         }
 

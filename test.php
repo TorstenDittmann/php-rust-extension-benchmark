@@ -1,6 +1,7 @@
 <?php
 
-class App {
+class App
+{
     protected array $routes;
 
     public function __construct(array $routes)
@@ -33,7 +34,8 @@ $appRust->build();
 execute("native", $app);
 execute("rust", $appRust);
 
-function execute($name, $app) {
+function execute($name, $app)
+{
     print("-------------------------\n");
     print("starting {$name}.\n");
     print("-------------------------\n");
@@ -46,16 +48,16 @@ function execute($name, $app) {
         "/v1/database/collections/:collectionId/documents/:documentId" => "/v1/database/collections/projects/documents/test-document"
     ];
     $times = 0.0;
-    for ($i=0; $i < 10; $i++) {
+    for ($i = 0; $i < 10; $i++) {
         print("run {$i}\n");
         $start = microtime(true);
-        for ($y=0; $y < 100_000; $y++) { 
+        for ($y = 0; $y < 100_000; $y++) {
             foreach ($data as $pattern => $url) {
                 if ($app->matches($url) !== $pattern) throw new Exception();
             }
         }
         $end = microtime(true);
-        $times += $end-$start;
+        $times += $end - $start;
     }
     $result = $times / 10;
     print("-------------------------\n");
