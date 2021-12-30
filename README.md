@@ -15,7 +15,10 @@ cargo build --release
 To execute the benchmark you need PHP installed locally.
 
 ```sh
+# Linux
 php -dextension=./target/release/libphp_utopia.so test.php
+# macOS
+php -dextension=./target/release/libphp_utopia.dylib test.php
 ```
 
 # Example Benchmark Results
