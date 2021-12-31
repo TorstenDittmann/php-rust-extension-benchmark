@@ -20,9 +20,9 @@ php -dextension=./target/release/libphp_utopia.so test.php
 # macOS
 php -dextension=./target/release/libphp_utopia.dylib test.php
 ```
-## Docker
+# Usage (Docker)
 
-You can also run the benchmark using Docker:
+You can also run the benchmark without the previous steps using Docker:
 
 ```sh
 # build
