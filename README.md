@@ -3,7 +3,7 @@ The purpose of this library is to test out the advantages of a PHP extension wri
 > This experiment uses the [ext-php-rs
 ](https://crates.io/crates/ext-php-rs) crate.
 
-The scenario we are testing is matching a URL against a list endpoints including placeholders which is used in [utopia-php/framework](https://github.com/utopia-php/framework).
+The scenario we are testing is matching a URL against a list of endpoints including placeholders which is used in [utopia-php/framework](https://github.com/utopia-php/framework).
 
 # Usage
 
