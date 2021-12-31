@@ -31,6 +31,7 @@ docker build -t php-rust-extenstion-benchmark .
 docker run php-rust-extenstion-benchmark
 ```
 # Example Benchmark Results
+> Run on an Apple MacBook Pro 13" 2020 M1 using the Dockerfile
 
 ```
 -------------------------
