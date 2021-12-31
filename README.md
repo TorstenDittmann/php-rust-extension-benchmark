@@ -20,7 +20,16 @@ php -dextension=./target/release/libphp_utopia.so test.php
 # macOS
 php -dextension=./target/release/libphp_utopia.dylib test.php
 ```
+## Docker
 
+You can also run the benchmark using Docker:
+
+```sh
+# build
+docker build -t php-rust-extenstion-benchmark .
+# run
+docker run php-rust-extenstion-benchmark
+```
 # Example Benchmark Results
 
 ```
