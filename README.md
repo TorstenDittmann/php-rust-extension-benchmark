@@ -47,7 +47,7 @@ run 7
 run 8
 run 9
 -------------------------
-native took 3.1730448007584 seconds in average per run.
+native took 2.2196494817734 seconds in average per run.
 -------------------------
 -------------------------
 starting rust.
@@ -63,6 +63,6 @@ run 7
 run 8
 run 9
 -------------------------
-rust took 0.5084520816803 seconds in average per run.
+rust took 0.30620512962341 seconds in average per run.
 -------------------------
 ```
