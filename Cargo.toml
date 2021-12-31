@@ -6,6 +6,7 @@ edition = "2021"
 [dependencies]
 ext-php-rs = "0.7.3"
 regex = "1.5.4"
+lazy_static = "1.4.0"
 
 [lib]
 crate-type = ["cdylib"]

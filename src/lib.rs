@@ -1,4 +1,5 @@
 use ext_php_rs::prelude::*;
+use lazy_static::lazy_static;
 use regex::Regex;
 
 struct Route {
@@ -22,14 +23,17 @@ impl AppRust {
     }
 
     pub fn build(&mut self) {
-        let regex = Regex::new(r":[^/]+").unwrap();
-        for route in self.routes.iter() {
-            let pattern = regex.replace_all(&route, "([^/]+)");
-            self.routes_prepared.push(Route {
+        fn prepare_routes(route: &String) -> Route {
+            lazy_static! {
+                static ref REGEX: Regex = Regex::new(r":[^/]+").unwrap();
+            }
+            let pattern = REGEX.replace_all(&route, "([^/]+)");
+            Route {
                 path: route.clone(),
                 expression: Regex::new(&pattern).unwrap(),
-            });
+            }
         }
+        self.routes_prepared = self.routes.iter().map(|route| prepare_routes(route)).collect();
     }
 
     pub fn matches(&self, url: String) -> Option<String> {
